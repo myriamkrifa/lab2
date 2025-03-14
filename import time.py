@@ -27,6 +27,17 @@ def selection_sort(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]  # Swap element
         return arr
    pass  # TODO: Implement Selection Sort logic
+# 📌 Insertion Sort Implementation
+def insertion_sort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]  # Shift elements to the right
+            j -= 1
+        arr[j + 1] = key  # Insert the key in its correct position
+        return arr
 
 # 📌 Function to test sorting performance
 def test_sorting_performance():
@@ -34,7 +45,7 @@ def test_sorting_performance():
     Generates a list of random numbers and tests the execution time of both sorting algorithms.
     """
     small_dataset = [random.uniform(1, 100) for _ in range(50)]
-    large_dataset = [random.uniform(1, 100) for _ in range(100000)]
+    large_dataset = [random.uniform(1, 10000) for _ in range(100000)]
     
     print("\n🔹 Small Dataset (50 elements):")
     
@@ -51,6 +62,13 @@ def test_sorting_performance():
     selection_sort(selection_test)
     end_time = time.time()
     print(f"✅ Selection Sort took {end_time - start_time:.6f} seconds.")
+
+    # Insertion sort test
+    insertion_test = small_dataset.copy()
+    start_time = time.time()
+    insertion_sort(selection_test)
+    end_time = time.time()
+    print(f"✅ Insertion Sort took {end_time - start_time:.6f} seconds.")
     
     print("\n🔹 Large Dataset (1000 elements):")
     
@@ -59,7 +77,7 @@ def test_sorting_performance():
     start_time = time.time()
     bubble_sort(bubble_test)
     end_time = time.time()
-    print(f"⚠️ Bubble Sort took {end_time - start_time:.6f} seconds.")
+    print(f"⚠ Bubble Sort took {end_time - start_time:.6f} seconds.")
     
     # Selection Sort test
     selection_test = large_dataset.copy()
@@ -67,6 +85,13 @@ def test_sorting_performance():
     selection_sort(selection_test)
     end_time = time.time()
     print(f"✅ Selection Sort took {end_time - start_time:.6f} seconds.")
+
+    # Insertion Sort test
+    insertion_test = large_dataset.copy()
+    start_time = time.time()
+    insertion_sort(insertion_test)
+    end_time = time.time()
+    print(f"✅ Insertion Sort took {end_time - start_time:.6f} seconds.")
     
     # Python Built-in Sort
     python_sort_test = large_dataset.copy()

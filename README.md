@@ -1,35 +1,38 @@
-# Selection Sort Algorithm
+# Sorting Algorithm Performance Comparison
 
-## Introduction
+## Overview
+This project compares the performance of *Bubble Sort, **Selection Sort, and Python's **Built-in Sort* on datasets of different sizes. The execution times are measured and analyzed.
 
-Selection Sort is a simple comparison-based sorting algorithm that divides the input list into two parts: the sorted and the unsorted section. It repeatedly selects the smallest element from the unsorted section and swaps it with the first unsorted element, gradually building the sorted list.
+## Results
+### *Small Dataset (50 elements):*
+✅ Bubble Sort took *0.000000 seconds*.
+✅ Selection Sort took *0.000000 seconds*.
 
-## How It Works
-
-1. Iterate through the list and find the smallest element.
-2. Swap it with the first unsorted element.
-3. Move the boundary between sorted and unsorted sections forward.
-4. Repeat until the entire list is sorted.
-
-## Time Complexity
-
-- **Best Case:** O(n²) (Still iterates over the array even if it is already sorted)
-- **Average Case:** O(n²)
-- **Worst Case:** O(n²)
-
-Since Selection Sort always requires O(n²) comparisons, it is not efficient for large datasets.
-
-## Advantages
-
-- Simple and easy to implement.
-- Performs well on small lists.
-- Requires minimal memory swaps compared to Bubble Sort.
-
-## Disadvantages
-
-- Inefficient for large datasets due to O(n²) complexity.
-- Slower compared to more advanced sorting algorithms like Quick Sort or Merge Sort.
+### *Large Dataset (1000 elements):*
+ Bubble Sort took *8.068824 seconds*.
+ Selection Sort took *2.904127 seconds*.
+ Insertion sort took *3.006150 seconds*.
+ Python Built-in Sort took *0.001964 seconds*.
 
 ## Conclusion
+1. *Small Datasets:*
+   - Both Bubble Sort and Selection Sort execute nearly instantly on small inputs.
+   - The choice of sorting algorithm does not significantly impact performance for small datasets.
+   - bubble sort has the worst preformance
+   - then comes selection sort
+   - lastly we have insertion sort
 
-The Selection Sort algorithm effectively sorts a list in ascending order by repeatedly finding the smallest element from the unsorted portion and swapping it with the first unsorted element. Though simple and easy to implement, Selection Sort has a time complexity of O(n²), making it
+2. *Large Datasets:*
+   - *Bubble Sort is significantly slower* due to its O(n²) time complexity.
+   - *Selection Sort performs better than Bubble Sort* because it makes fewer swaps, but it is still O(n²).
+   - *Python’s Built-in Sort (Timsort) is the best choice*, completing in negligible time thanks to its O(n log n) complexity.
+
+## Recommendations
+- *For small datasets* (≤ 50 elements), any sorting algorithm works fine.
+- *For large datasets*, avoid Bubble Sort and Selection Sort. Use Python’s built-in sorted() or list.sort() for optimal performance.
+- Consider *Merge Sort or QuickSort* for cases where a built-in sort is not available.
+
+## Future Improvements
+- Compare with *Merge Sort, **QuickSort, and **Insertion Sort*.
+- Test on *different data distributions* (random, sorted, reversed, nearly sorted).
+- Implement *optimized versions* of Bubble Sort (early termination) and Selection Sort (fewer swaps).
